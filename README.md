@@ -1,21 +1,14 @@
 # 🎲 dau
 
-**dau** (pronounced _dah-oo_) is an experimental programming language designed as a learning exercise.
+**dau** (pronounced _DAH-oo_) is a simple programming language designed as a learning exercise.
 
 ## example
 
-```haskell
--- this is a comment
-pr "hello, world!"
+```clojure
+(: (f n)
+    (? n <= 1
+        1
+        n * (f n - 1)))
 
-: countdown(n), n > 0
-  @ i = n, 0, -1
-    ? i > 0
-      pr i
-    | pr "GO!"
-    .
-  .
-.
-
-countdown 3
+(pr (f 5))
 ```
