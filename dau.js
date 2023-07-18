@@ -76,7 +76,7 @@ const test3 = `
 (: (f n)
     (? n <= 1
         1
-        n * (f n - 1)))
+        n * (f n - 1x)))
 
 (pr "5! = " (f 5))
 `;
@@ -85,20 +85,29 @@ dau(test3);
 
 //--------------------------------------------------------------
 
+var input_string;
+
 function dau(input, env) {
+	input_string = input;
 	console.log(Array.from(lex(input)));
 }
 
-function error(msg, i) {
-	console.error('⚠️  ' + msg + (i ? ' at index ' + i : ''));
+function error(type, i, t) {
+	const line = input_string.slice(0, i).split('\n').length;
+	const msg = {
+		str: 'Unterminated string literal',
+		num: 'Invalid number "' + t + '"',
+	}[type];
+
+	console.error('⚠️  Error at line ' + line + ': ' + msg);
 	return null;
 }
 
 function* lex(s) {
-	const re = /;.*|"(?:\\.|[^"])*"?|[^({[\]})'\s]+|\S/g;
+	const re = /;.*|"(?:\\.|[^"])*"?|[^()'\s]+|\S/g;
 
-	const str_error = () => error('Unterminated string literal');
-	const num_error = (t, i) => error(`Invalid number '${t}'`, i);
+	const str = (t) => (t.endsWith('"') ? t : error('str'));
+	const num = (t, i) => (!isNaN(t) ? Number(t) : error('num', i, t));
 
 	for (let token of s.matchAll(re)) {
 		const t = token[0];
@@ -106,14 +115,12 @@ function* lex(s) {
 
 		// comment
 		if (t[0] === ';') continue;
-		// bracket
-		if ('([{}])'.includes(t)) yield [t];
+		// parenthesis
+		if (t === '(' || t === ')') yield [t];
 		// string
-		else if (t[0] === '"')
-			yield t.slice(-1) !== '"' ? str_error() : ['s', i, t];
+		else if (t[0] === '"') yield ['s', i, str(t)];
 		// number
-		else if (/^-?\d/.test(t))
-			yield isNaN(t) ? num_error(t, i) : ['n', i, Number(t)];
+		else if (/^-?\d/.test(t)) yield ['n', i, num(t, i)];
 		// identifier
 		else yield ['i', i, t];
 	}
