@@ -1,14 +1,40 @@
-html,
-body {
-	background-color: #222;
+:root {
+	--bg: #222;
+	--fg: #eee;
 }
-body {
+
+html {
+	background-color: var(--bg);
+}
+
+nav {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	padding: 1em;
+	gap: 1em;
+}
+
+main {
 	max-width: 800px;
 	margin: 0 auto;
 	padding: 1em;
 }
 
 * {
-	color: #eee;
+	color: var(--fg);
 	font-family: sans-serif;
+}
+
+a {
+	transition: all ease 0.2s;
+}
+a:hover {
+	font-weight: bold;
+}
+
+code > span {
+	font-family: monospace;
 }
