@@ -1,0 +1,14 @@
+html,
+body {
+	background-color: #222;
+}
+body {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 1em;
+}
+
+* {
+	color: #eee;
+	font-family: sans-serif;
+}
