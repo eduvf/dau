@@ -3,6 +3,10 @@ layout: default
 title: dau
 ---
 
+<h3>
+    <img src="./icon.svg">
+</h3>
+
 # dau
 
 **dau** is a:
