@@ -1,6 +1,8 @@
 :root {
 	--bg: #222;
 	--fg: #eee;
+
+	font-size: 16pt;
 }
 
 html {
@@ -8,33 +10,61 @@ html {
 }
 
 nav {
-	position: fixed;
-	top: 0;
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	padding: 1em;
-	gap: 1em;
+}
+nav > a {
+	padding: 0.5rem;
 }
 
 main {
 	max-width: 800px;
 	margin: 0 auto;
-	padding: 1em;
+	padding: 1rem;
 }
 
 * {
 	color: var(--fg);
-	font-family: sans-serif;
+	font-family: system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-align: center;
 }
 
 a {
-	transition: all ease 0.2s;
+	font-weight: bold;
+	text-decoration: none;
 }
 a:hover {
-	font-weight: bold;
+	background-color: var(--fg);
+	color: var(--bg);
 }
 
+pre {
+	padding: 1rem;
+	background-color: #0002;
+}
+pre,
+code,
 code > span {
 	font-family: monospace;
+}
+span.err,
+span.nb,
+span.nf {
+	font-weight: bold;
+}
+span.p {
+	opacity: 0.5;
+}
+span.c1 {
+	font-style: italic;
+	opacity: 0.5;
 }
