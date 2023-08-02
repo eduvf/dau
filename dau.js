@@ -30,7 +30,7 @@ function dau(input) {
 }
 
 function lex(str) {
-	const re = /;.*|".*?"|[()]|[^()"\s]+/g;
+	const re = /;.*|".*?"|[()]|[^();"\s]+/g;
 	return str.match(re).filter((t) => !t.startsWith(';'));
 }
 
