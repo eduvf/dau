@@ -8,6 +8,10 @@
 - [ ] ast → bytecode
 - [ ] VM
 
+## resources
+
+- [The Implementation of Lua 5.0](https://www.lua.org/doc/jucs05.pdf)
+
 ## example
 
 ```clojure
