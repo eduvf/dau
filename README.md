@@ -4,9 +4,7 @@
 
 ## to-do
 
-- [x] lex/parse → ast
-- [ ] ast → bytecode
-- [ ] VM
+- define coding conventions
 
 ## resources
 
