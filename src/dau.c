@@ -6,10 +6,22 @@
 void scan(char *s)
 {
     int len = strlen(s);
-    for (int i = 0; i < len; i++)
+    int i = 0;
+    while (i < len)
     {
-        // printf("%s", &s[i]);
+        char c = s[i];
+        if (isspace(c))
+            i++;
+        else if (c == '(' || c == ')')
+            printf("%c\n", s[i++]);
+        else
+        {
+            while (s[i] != '\0' && !isspace(s[i]) && s[i] != '(' && s[i] != ')')
+                putchar(s[i++]);
+            puts("");
+        }
     }
+    // printf("%s", &s[i]);
 }
 
 void repl()
