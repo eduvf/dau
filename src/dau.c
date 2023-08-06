@@ -1,10 +1,12 @@
 #include <ctype.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <string.h>
 
 void scan(char *s)
 {
-    for (int i = 0; i < sizeof(s); i++)
+    int len = strlen(s);
+    for (int i = 0; i < len; i++)
     {
         // printf("%s", &s[i]);
     }
