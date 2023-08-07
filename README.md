@@ -2,10 +2,6 @@
 
 **dau** (pronounced _DAH-oo_) is a simple programming language designed as a learning exercise.
 
-## to-do
-
-- define coding conventions
-
 ## resources
 
 - [The Implementation of Lua 5.0](https://www.lua.org/doc/jucs05.pdf)
