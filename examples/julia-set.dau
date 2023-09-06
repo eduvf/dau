@@ -3,17 +3,17 @@
 
 (\  (julia)
 
-    (= char-gradient " .:-=+*#%$@")
+    (: char-gradient " .:-=+*#%$@")
 
     (@ [y -1 1 0.05]
 
         (@ [x -1.5 1.5 0.025]
 
-            (= zr x zi y i 0)
+            (: zr x zi y i 0)
 
             (@ (< i 100)
 
-                (=  zr (expr zr * zr - zi * zi - 0.79)
+                (:  zr (expr zr * zr - zi * zi - 0.79)
                     zi (expr zr * zi * 2 + 0.15))
 
                 (?  (expr zr * zr + zi * zi > 4)
