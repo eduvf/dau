@@ -1,29 +1,18 @@
 ; Julia set
 ; taken from Lua's example in rosettacode.org
 
-(\  (julia)
-
+(: (julia)
     (: char-gradient " .:-=+*#%$@")
-
-    (@ [y -1 1 0.05]
-
-        (@ [x -1.5 1.5 0.025]
-
+    (@ (.. y -1 1 0.05)
+        (@ (.. x -1.5 1.5 0.025)
             (: zr x zi y i 0)
-
             (@ (< i 100)
-
-                (:  zr (expr zr * zr - zi * zi - 0.79)
-                    zi (expr zr * zi * 2 + 0.15))
-
-                (?  (expr zr * zr + zi * zi > 4)
+                (: zr (expr zr * zr - zi * zi - 0.79))
+                (: zi (expr zr * zi * 2 + 0.15))
+                (? (expr zr * zr + zi * zi > 4)
                     (/>)
-                    (inc i))
-            )
-            (pr (. char-gradient (flr (/ i 10))))
-        )
-        (pr)
-    )
-)
+                    (inc i)))
+            (pr (. char-gradient (flr (/ i 10)))))
+        (pr)))
 
 (julia)
